@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import store.beans.Address;
+
 import store.beans.Store;
 import store.repository.StoreRepository;
 
@@ -28,7 +28,7 @@ public class WebController {
 	public String addNewStore(Model model) {
 		Store c = new Store();
 		model.addAttribute("newStore", c);
-		return "input";
+		return "index";
 	}
 	
 	@PostMapping("/inputStore")
@@ -42,7 +42,7 @@ public class WebController {
 		Store c = repo.findById(id).orElse(null);
 		System.out.println("ITEM TO EDIT: " + c.toString());
 		model.addAttribute("newStore", c);
-		return "input";
+		return "index";
 	}
 
 	@PostMapping("/update/{id}")
@@ -58,8 +58,6 @@ public class WebController {
 	    return viewAllStore(model);
 	}
 
-	public WebController() {
-		// TODO Auto-generated constructor stub
-	}
 
 }
+
